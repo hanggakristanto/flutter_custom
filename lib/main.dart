@@ -33,21 +33,21 @@ void main() async {
     title: 'Capek Ngoding',
     navigatorKey: Get.navigatorKey,
     debugShowCheckedModeBanner: false,
-    theme: ThemeData.dark(),
+    theme: ThemeData.light(),
     // home: const TemplateCardView(),
     // home: const AckTutorialCartView(),
     // home: const TrBasicWidgetView(),
     // home: const TrExampleView(),
-    home: const TrView(),
+    home: const LoginView(),
     // home: const UiDailiyTodoListView(),
     // home: const LifeCycleDemoView(),
   ));
 
-  runApp(MaterialApp.router(
-    title: 'Capek Ngoding',
-    debugShowCheckedModeBanner: false,
-    routerConfig: getRouters(),
-  ));
+  // runApp(MaterialApp.router(
+  //   title: 'Capek Ngoding',
+  //   debugShowCheckedModeBanner: false,
+  //   routerConfig: getRouters(),
+  // ));
 }
 
 

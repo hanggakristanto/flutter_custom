@@ -6,8 +6,8 @@ class AppConfig {
   //# ---------------------------------------
 
   static String get baseUrl {
-    var storage = yourName.replaceAll(" ", "-").toLowerCase();
-    storage = "$storage-$phoneNumber";
-    return "http://capekngoding.com:8080/$storage/api";
+    // var storage = yourName.replaceAll(" ", "-").toLowerCase();
+    // storage = "$storage-$phoneNumber";
+    return "https://dev.daiuntuknegeri.com";
   }
 }

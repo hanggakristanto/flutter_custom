@@ -4,6 +4,10 @@ If there is a conflicting class name in this file,
 it means you have to rename it to something more unique.
 */
 export 'package:example/model/sales_data.dart';
+export 'package:example/module/dai/login/controller/login_controller.dart';
+export 'package:example/module/dai/login/view/login_view.dart';
+export 'package:example/module/dai/verifikasi/controller/verifikasi_controller.dart';
+export 'package:example/module/dai/verifikasi/view/verifikasi_view.dart';
 export 'package:example/module/dev/appbar_ui/controller/appbar_ui_controller.dart';
 export 'package:example/module/dev/appbar_ui/view/appbar_ui_view.dart';
 export 'package:example/module/dev/avatar_ui/controller/avatar_ui_controller.dart';

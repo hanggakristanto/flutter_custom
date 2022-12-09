@@ -1308,6 +1308,38 @@ getRouters({
               child: const CgModuleFormView(),
             ),
           ),
+          //       GoRoute(
+          //   path: '/cg_crud_list',
+          //   pageBuilder: (context, state) => noTransition(
+          //     context: context,
+          //     state: state,
+          //     child: const CgCrudListView(),
+          //   ),
+          // ),
+          //       GoRoute(
+          //   path: '/cg_crud_form',
+          //   pageBuilder: (context, state) => noTransition(
+          //     context: context,
+          //     state: state,
+          //     child: const CgCrudFormView(),
+          //   ),
+          // ),
+          GoRoute(
+            path: '/login',
+            pageBuilder: (context, state) => noTransition(
+              context: context,
+              state: state,
+              child: const LoginView(),
+            ),
+          ),
+          GoRoute(
+            path: '/verifikasi',
+            pageBuilder: (context, state) => noTransition(
+              context: context,
+              state: state,
+              child: const VerifikasiView(),
+            ),
+          ),
           //@ROUTER_GENERATOR
         ],
       ),

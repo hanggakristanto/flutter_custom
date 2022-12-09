@@ -68,6 +68,8 @@
         "tutorial/crud_generator/cg_module_list",
         "tutorial/crud_generator/cg_module_form",
         "tutorial/crud_generator/cg_crud_list",
-        "tutorial/crud_generator/cg_crud_form"
+        "tutorial/crud_generator/cg_crud_form",
+        "dai/login",
+        "dai/verifikasi"
     ]
 }
