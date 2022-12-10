@@ -117,11 +117,11 @@ class LocationPickerMapState extends State<LocationPickerMap> {
 
     try {
       nominatimSearchResults.clear();
-      var apiResponse = await Dio().get(
-        "https://nominatim.openstreetmap.org/search/$search?format=json&limit=10",
-      );
+      // var apiResponse = await Dio().get(
+      //   "https://nominatim.openstreetmap.org/search/$search?format=json&limit=10",
+      // );
 
-      nominatimSearchResults.addAll(apiResponse.data);
+      // nominatimSearchResults.addAll(apiResponse.data);
       setState(() {});
     } catch (_) {}
 
