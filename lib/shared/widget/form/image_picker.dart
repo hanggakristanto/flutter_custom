@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import '../../../core.dart';
@@ -62,44 +60,44 @@ class _QImagePickerState extends State<QImagePicker> {
     return filePath;
   }
 
-  Future<String?> uploadFile(String filePath) async {
-    final formData = FormData.fromMap({
-      'image': MultipartFile.fromBytes(
-        File(filePath).readAsBytesSync(),
-        filename: "upload.jpg",
-      ),
-    });
+  // Future<String?> uploadFile(String filePath) async {
+  //   final formData = FormData.fromMap({
+  //     'image': MultipartFile.fromBytes(
+  //       File(filePath).readAsBytesSync(),
+  //       filename: "upload.jpg",
+  //     ),
+  //   });
 
-    var res = await Dio().post(
-      'https://api.imgbb.com/1/upload?key=b55ef3fd02b80ab180f284e479acd7c4',
-      data: formData,
-    );
+  //   var res = await Dio().post(
+  //     'https://api.imgbb.com/1/upload?key=b55ef3fd02b80ab180f284e479acd7c4',
+  //     data: formData,
+  //   );
 
-    var data = res.data["data"];
-    var url = data["url"];
-    widget.onChanged(url);
-    return url;
-  }
+  //   var data = res.data["data"];
+  //   var url = data["url"];
+  //   widget.onChanged(url);
+  //   return url;
+  // }
 
-  browsePhoto() async {
-    if (loading) return;
+  // browsePhoto() async {
+  //   if (loading) return;
 
-    String? filePath;
-    loading = true;
-    setState(() {});
+  //   String? filePath;
+  //   loading = true;
+  //   setState(() {});
 
-    if (Platform.isWindows) {
-      filePath = await getFileMultiplePlatform();
-    } else {
-      filePath = await getFileAndroidIosAndWeb();
-    }
-    if (filePath == null) return;
+  //   if (Platform.isWindows) {
+  //     filePath = await getFileMultiplePlatform();
+  //   } else {
+  //     filePath = await getFileAndroidIosAndWeb();
+  //   }
+  //   if (filePath == null) return;
 
-    imageUrl = await uploadFile(filePath);
-    loading = false;
-    controller.text = imageUrl!;
-    setState(() {});
-  }
+  //   imageUrl = await uploadFile(filePath);
+  //   loading = false;
+  //   controller.text = imageUrl!;
+  //   setState(() {});
+  // }
 
   String? get currentValue {
     return imageUrl;
@@ -170,58 +168,58 @@ class _QImagePickerState extends State<QImagePicker> {
           const SizedBox(
             width: 12.0,
           ),
-          Expanded(
-            child: FormField(
-                initialValue: false,
-                validator: (value) {
-                  return widget.validator!(imageUrl);
-                },
-                enabled: true,
-                builder: (FormFieldState<bool> field) {
-                  return TextFormField(
-                    controller: controller,
-                    // validator: widget.validator,
+          // Expanded(
+          //   child: FormField(
+          //       initialValue: false,
+          //       validator: (value) {
+          //         return widget.validator!(imageUrl);
+          //       },
+          //       enabled: true,
+          //       builder: (FormFieldState<bool> field) {
+          //         return TextFormField(
+          //           controller: controller,
+          //           // validator: widget.validator,
 
-                    obscureText: widget.obscure,
-                    readOnly: true,
-                    decoration: InputDecoration(
-                      labelText: widget.label,
-                      labelStyle: const TextStyle(
-                        color: Colors.blueGrey,
-                      ),
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.blueGrey,
-                        ),
-                      ),
-                      suffixIcon: Transform.scale(
-                        scale: 0.8,
-                        child: SizedBox(
-                          width: 80.0,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  loading ? Colors.grey[300] : Colors.blueGrey,
-                            ),
-                            onPressed: () => browsePhoto(),
-                            child: const Text(
-                              "Browse",
-                              style: TextStyle(
-                                fontSize: 10.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      helperText: widget.hint,
-                      errorText: field.errorText,
-                    ),
-                    onChanged: (value) {
-                      widget.onChanged(value);
-                    },
-                  );
-                }),
-          ),
+          //           obscureText: widget.obscure,
+          //           readOnly: true,
+          //           decoration: InputDecoration(
+          //             labelText: widget.label,
+          //             labelStyle: const TextStyle(
+          //               color: Colors.blueGrey,
+          //             ),
+          //             enabledBorder: const UnderlineInputBorder(
+          //               borderSide: BorderSide(
+          //                 color: Colors.blueGrey,
+          //               ),
+          //             ),
+          //             suffixIcon: Transform.scale(
+          //               scale: 0.8,
+          //               child: SizedBox(
+          //                 width: 80.0,
+          //                 child: ElevatedButton(
+          //                   style: ElevatedButton.styleFrom(
+          //                     backgroundColor:
+          //                         loading ? Colors.grey[300] : Colors.blueGrey,
+          //                   ),
+          //                   onPressed: () => browsePhoto(),
+          //                   child: const Text(
+          //                     "Browse",
+          //                     style: TextStyle(
+          //                       fontSize: 10.0,
+          //                     ),
+          //                   ),
+          //                 ),
+          //               ),
+          //             ),
+          //             helperText: widget.hint,
+          //             errorText: field.errorText,
+          //           ),
+          //           onChanged: (value) {
+          //             widget.onChanged(value);
+          //           },
+          //         );
+          //       }),
+          // ),
         ],
       ),
     );

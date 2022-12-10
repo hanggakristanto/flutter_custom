@@ -1,6 +1,4 @@
-import 'package:example/config.dart';
 import 'package:example/core.dart';
-import 'package:example/session.dart';
 import 'package:flutter/material.dart';
 
 class LoginController extends State<LoginView> implements MvcController {
@@ -23,35 +21,35 @@ class LoginController extends State<LoginView> implements MvcController {
 
   doLogin() async {
     showLoading();
-    var response = await Dio().post(
-      "${AppConfig.baseUrl}/api/login",
-      options: Options(
-        headers: {
-          "Content-Type": "application/json",
-        },
-      ),
-      data: {
-        "email": email,
-        "password": password,
-      },
-    );
-    Map obj = response.data;
-    print(obj);
-    print("ini code ${obj['code']}");
-    AppSession.token = obj["data"]["token"];
-    mainStorage.put("token", AppSession.token);
+    // var response = await Dio().post(
+    //   "${AppConfig.baseUrl}/api/login",
+    //   options: Options(
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   ),
+    //   data: {
+    //     "email": email,
+    //     "password": password,
+    //   },
+    // );
+    // Map obj = response.data;
+    // print(obj);
+    // print("ini code ${obj['code']}");
+    // AppSession.token = obj["data"]["token"];
+    // mainStorage.put("token", AppSession.token);
 
-    hideLoading();
-    print(AppSession.token);
-    try {
-      if (obj['code'] == 200) {
-        print("Login success!");
-        await showInfoDialog("Login success!");
-        // Get.back();
-        const VerifikasiView();
-      }
-    } catch (e) {
-      print(e);
-    }
+    // hideLoading();
+    // print(AppSession.token);
+    // try {
+    //   if (obj['code'] == 200) {
+    //     print("Login success!");
+    //     await showInfoDialog("Login success!");
+    //     // Get.back();
+    //     const VerifikasiView();
+    //   }
+    // } catch (e) {
+    //   print(e);
+    // }
   }
 }
