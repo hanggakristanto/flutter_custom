@@ -1338,6 +1338,14 @@ getRouters({
               child: const VerifikasiView(),
             ),
           ),
+          GoRoute(
+      path: '/home',
+      pageBuilder: (context, state) => noTransition(
+        context: context,
+        state: state,
+        child: const HomeView(),
+      ),
+    ),
           //@ROUTER_GENERATOR
         ],
       ),
